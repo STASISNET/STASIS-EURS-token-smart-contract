@@ -38,7 +38,7 @@ contract AbstractToken is Token, SafeMath {
    * @return true if tokens were transferred successfully, false otherwise
    */
   function transfer (address _to, uint256 _value)
-  public returns (bool success) {
+  public payable returns (bool success) {
     uint256 fromBalance = accounts [msg.sender];
     if (fromBalance < _value) return false;
     if (_value > 0 && msg.sender != _to) {
@@ -59,7 +59,7 @@ contract AbstractToken is Token, SafeMath {
    * @return true if tokens were transferred successfully, false otherwise
    */
   function transferFrom (address _from, address _to, uint256 _value)
-  public returns (bool success) {
+  public payable returns (bool success) {
     uint256 spenderAllowance = allowances [_from][msg.sender];
     if (spenderAllowance < _value) return false;
     uint256 fromBalance = accounts [_from];
@@ -85,7 +85,7 @@ contract AbstractToken is Token, SafeMath {
    * @return true if token transfer was successfully approved, false otherwise
    */
   function approve (address _spender, uint256 _value)
-  public returns (bool success) {
+  public payable returns (bool success) {
     allowances [msg.sender][_spender] = _value;
     Approval (msg.sender, _spender, _value);
 

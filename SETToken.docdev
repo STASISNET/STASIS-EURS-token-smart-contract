@@ -25,6 +25,12 @@
             "_value" : "number of tokens to burn\r"
          }
       },
+      "calculateFee(uint256)" : {
+         "params" : {
+            "_amount" : "transfer amount to calculate fee for\r"
+         },
+         "return" : "fee for transfer of given amount\r"
+      },
       "createTokens(uint256)" : {
          "params" : {
             "_value" : "number of tokens to be created.\r"
@@ -44,12 +50,46 @@
             "_value" : "number of tokens to transfer\r"
          }
       },
+      "flags(address)" : {
+         "params" : {
+            "_address" : "address to get flags for\r"
+         },
+         "return" : "flags for given address\r"
+      },
+      "getFeeParameters()" : {
+         "return" : "fee parameters\r"
+      },
       "name()" : {
          "return" : "name of the token\r"
+      },
+      "nonce(address)" : {
+         "params" : {
+            "_owner" : "address of the token holder to get nonce for\r"
+         },
+         "return" : "current nonce for token holder with give address\r"
+      },
+      "setDelegate(address)" : {
+         "params" : {
+            "_delegate" : "address of smart contract to delegate execution of\r delegatable methods to, or zero to not delegate delegatable methods\r execution.\r"
+         }
       },
       "setFeeCollector(address)" : {
          "params" : {
             "_newFeeCollector" : "address of the new fee collector\r"
+         }
+      },
+      "setFeeParameters(uint256,uint256,uint256,uint256)" : {
+         "params" : {
+            "_fixedFee" : "fixed fee in token units\r",
+            "_maxVariableFee" : "maximum variable fee in token units\r",
+            "_minVariableFee" : "minimum variable fee in token units\r",
+            "_variableFeeNumerator" : "variable fee numerator\r"
+         }
+      },
+      "setFlags(address,uint256)" : {
+         "params" : {
+            "_address" : "address to set flags for\r",
+            "_flags" : "flags to set\r"
          }
       },
       "setOwner(address)" : {

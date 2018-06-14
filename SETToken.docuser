@@ -12,6 +12,9 @@
       "burnTokens(uint256)" : {
          "notice" : "Burn tokens.\r "
       },
+      "calculateFee(uint256)" : {
+         "notice" : "Calculate fee for transfer of given number of tokens.\r "
+      },
       "createTokens(uint256)" : {
          "notice" : "Create tokens.\r "
       },
@@ -21,14 +24,32 @@
       "delegatedTransfer(address,uint256,uint256,uint256,uint8,bytes32,bytes32)" : {
          "notice" : "Transfer given number of token from the signed defined by digital signature\r to given recipient.\r "
       },
+      "flags(address)" : {
+         "notice" : "Get flags for given address.\r "
+      },
       "freezeTransfers()" : {
          "notice" : "Freeze token transfers.\r"
+      },
+      "getFeeParameters()" : {
+         "notice" : "Get fee parameters.\r "
       },
       "name()" : {
          "notice" : "Get name of the token.\r "
       },
+      "nonce(address)" : {
+         "notice" : "Get current nonce for token holder with given address, i.e. nonce this\r token holder should use for next delegated transfer.\r "
+      },
+      "setDelegate(address)" : {
+         "notice" : "Set address of smart contract to delegate execution of delegatable methods\r to.\r "
+      },
       "setFeeCollector(address)" : {
          "notice" : "Set fee collector.\r "
+      },
+      "setFeeParameters(uint256,uint256,uint256,uint256)" : {
+         "notice" : "Set fee parameters.\r "
+      },
+      "setFlags(address,uint256)" : {
+         "notice" : "Set flags for given address.\r "
       },
       "setOwner(address)" : {
          "notice" : "Set smart contract owner.\r "
