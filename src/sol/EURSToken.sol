@@ -1,5 +1,5 @@
 /*
- * SET Token Smart Contract.  Copyright © 2018 by ABDK Consulting.
+ * EURS Token Smart Contract.
  * Copyright (c) 2018 by STSS (Malta) Limited.
  * Contact: <tech@stasis.net>
  */
@@ -8,10 +8,10 @@ pragma solidity ^0.4.20;
 import "./AbstractToken.sol";
 
 /**
- * SET Token Smart Contract: EIP-20 compatible token smart contract that manages
- * SET tokens.
+ * EURS Token Smart Contract: EIP-20 compatible token smart contract that
+ * manages EURS tokens.
  */
-contract SETToken is AbstractToken {
+contract EURSToken is AbstractToken {
   /**
    * Fee denominator (0.001%).
    */
@@ -92,11 +92,11 @@ contract SETToken is AbstractToken {
   }
 
   /**
-   * Create SET Token smart contract with message sender as an owner.
+   * Create EURS Token smart contract with message sender as an owner.
    *
    * @param _feeCollector address fees are sent to
    */
-  function SETToken (address _feeCollector) public {
+  function EURSToken (address _feeCollector) public {
     fixedFee = DEFAULT_FEE;
     minVariableFee = 0;
     maxVariableFee = 0;
@@ -119,7 +119,7 @@ contract SETToken is AbstractToken {
    * @return name of the token
    */
   function name () public delegatable view returns (string) {
-    return "Stable Euro Token";
+    return "STASIS EURS Token";
   }
 
   /**
@@ -128,7 +128,7 @@ contract SETToken is AbstractToken {
    * @return symbol of the token
    */
   function symbol () public delegatable view returns (string) {
-    return "SET";
+    return "EURS";
   }
 
   /**

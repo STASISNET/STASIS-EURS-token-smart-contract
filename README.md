@@ -1,6 +1,6 @@
-# SET Token Smart Contract #
+# EURS Token Smart Contract #
 
-SET Token for Ethereum smart contracts.
+EURS Token for Ethereum smart contracts.
 
 Copyright © 2018 by STSS (Malta) Limited.
 
