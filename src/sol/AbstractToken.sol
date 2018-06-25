@@ -1,6 +1,7 @@
 /*
  * Abstract Token Smart Contract.  Copyright © 2017 by ABDK Consulting.
- * Author: Mikhail Vladimirov <mikhail.vladimirov@gmail.com>
+ * Copyright (c) 2018 by STSS (Malta) Limited.
+ * Contact: <tech@stasis.net>
  */
 pragma solidity ^0.4.20;
 
