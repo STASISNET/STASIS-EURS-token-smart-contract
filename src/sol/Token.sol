@@ -1,40 +1,41 @@
+// SPDX-License-Identifier: UNLICENSED
 /*
  * EIP-20 Standard Token Smart Contract Interface.
  * Copyright (c) 2018 by STSS (Malta) Limited.
  * Contact: <tech@stasis.net>
  */
-pragma solidity ^0.4.20;
+pragma solidity ^0.8.0;
 
 /**
  * ERC-20 standard token interface, as defined
  * <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md">here</a>.
  */
-contract Token {
+interface Token {
   /**
    * Get total number of tokens in circulation.
    *
-   * @return total number of tokens in circulation
+   * @return supply total number of tokens in circulation
    */
-  function totalSupply () public view returns (uint256 supply);
+  function totalSupply () external view returns (uint256 supply);
 
   /**
    * Get number of tokens currently belonging to given owner.
    *
    * @param _owner address to get number of tokens currently belonging to the
    *        owner of
-   * @return number of tokens currently belonging to the owner of given address
+   * @return balance number of tokens currently belonging to the owner of given address
    */
-  function balanceOf (address _owner) public view returns (uint256 balance);
+  function balanceOf (address _owner) external view returns (uint256 balance);
 
   /**
    * Transfer given number of tokens from message sender to given recipient.
    *
    * @param _to address to transfer tokens to the owner of
    * @param _value number of tokens to transfer to the owner of given address
-   * @return true if tokens were transferred successfully, false otherwise
+   * @return success true if tokens were transferred successfully, false otherwise
    */
   function transfer (address _to, uint256 _value)
-  public payable returns (bool success);
+  external payable returns (bool success);
 
   /**
    * Transfer given number of tokens from given owner to given recipient.
@@ -43,10 +44,10 @@ contract Token {
    * @param _to address to transfer tokens to the owner of
    * @param _value number of tokens to transfer from given owner to given
    *        recipient
-   * @return true if tokens were transferred successfully, false otherwise
+   * @return success true if tokens were transferred successfully, false otherwise
    */
   function transferFrom (address _from, address _to, uint256 _value)
-  public payable returns (bool success);
+  external payable returns (bool success);
 
   /**
    * Allow given spender to transfer given number of tokens from message sender.
@@ -54,10 +55,10 @@ contract Token {
    * @param _spender address to allow the owner of to transfer tokens from
    *        message sender
    * @param _value number of tokens to allow to transfer
-   * @return true if token transfer was successfully approved, false otherwise
+   * @return success true if token transfer was successfully approved, false otherwise
    */
   function approve (address _spender, uint256 _value)
-  public payable returns (bool success);
+  external payable returns (bool success);
 
   /**
    * Tell how many tokens given spender is currently allowed to transfer from
@@ -67,11 +68,11 @@ contract Token {
    *        from the owner of
    * @param _spender address to get number of tokens allowed to be transferred
    *        by the owner of
-   * @return number of tokens given spender is currently allowed to transfer
+   * @return remaining number of tokens given spender is currently allowed to transfer
    *         from given owner
    */
   function allowance (address _owner, address _spender)
-  public view returns (uint256 remaining);
+  external view returns (uint256 remaining);
 
   /**
    * Logged when tokens were transferred from one owner to another.
