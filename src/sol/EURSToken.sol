@@ -98,7 +98,7 @@ contract EURSToken is AbstractToken {
    * @return true if tokens were transferred successfully, false otherwise
    */
   function transfer (address _to, uint256 _value)
-  public override virtual payable returns (bool) {
+  public override virtual returns (bool) {
     if (frozen) return false;
     else if (
       (addressFlags [msg.sender] | addressFlags [_to]) & BLACK_LIST_FLAG ==
@@ -122,7 +122,7 @@ contract EURSToken is AbstractToken {
    * @return true if tokens were transferred successfully, false otherwise
    */
   function transferFrom (address _from, address _to, uint256 _value)
-  public override virtual payable returns (bool) {
+  public override virtual returns (bool) {
     if (frozen) return false;
     else if (
       (addressFlags [_from] | addressFlags [_to]) & BLACK_LIST_FLAG ==
@@ -146,7 +146,7 @@ contract EURSToken is AbstractToken {
    * @return success true if token transfer was successfully approved, false otherwise
    */
   function approve (address _spender, uint256 _value)
-  public override payable returns (bool success) {
+  public override returns (bool success) {
     return AbstractToken.approve (_spender, _value);
   }
 
@@ -181,7 +181,7 @@ contract EURSToken is AbstractToken {
   function delegatedTransfer (
     address _to, uint256 _value, uint256 _fee,
     uint256 _nonce, uint8 _v, bytes32 _r, bytes32 _s)
-  public virtual payable returns (bool) {
+  public virtual returns (bool) {
     if (frozen) return false;
     else {
       address _from = ecrecover (
@@ -224,7 +224,7 @@ contract EURSToken is AbstractToken {
    * @param _value number of tokens to be created.
    */
   function createTokens (uint256 _value)
-  public virtual payable returns (bool) {
+  public virtual returns (bool) {
     require (msg.sender == owner);
 
     if (_value > 0) {
@@ -245,7 +245,7 @@ contract EURSToken is AbstractToken {
    * @param _value number of tokens to burn
    */
   function burnTokens (uint256 _value)
-  public virtual payable returns (bool) {
+  public virtual returns (bool) {
     require (msg.sender == owner);
 
     if (_value > 0) {
@@ -263,7 +263,7 @@ contract EURSToken is AbstractToken {
   /**
    * Freeze token transfers.
    */
-  function freezeTransfers () public payable {
+  function freezeTransfers () public {
     require (msg.sender == owner);
 
     if (!frozen) {
@@ -276,7 +276,7 @@ contract EURSToken is AbstractToken {
   /**
    * Unfreeze token transfers.
    */
-  function unfreezeTransfers () public payable {
+  function unfreezeTransfers () public {
     require (msg.sender == owner);
 
     if (frozen) {
@@ -295,18 +295,6 @@ contract EURSToken is AbstractToken {
     require (msg.sender == owner);
 
     owner = _newOwner;
-  }
-
-  /**
-   * Set fee collector.
-   *
-   * @param _newFeeCollector address of the new fee collector
-   */
-  function setFeeCollector (address _newFeeCollector)
-  public payable {
-    require (msg.sender == owner);
-
-    feeCollector = _newFeeCollector;
   }
 
   /**
@@ -359,7 +347,7 @@ contract EURSToken is AbstractToken {
    * @param _flags flags to set
    */
   function setFlags (address _address, uint256 _flags)
-  public payable {
+  public {
     require (msg.sender == owner);
 
     addressFlags [_address] = _flags;

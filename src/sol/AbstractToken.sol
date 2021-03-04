@@ -39,7 +39,7 @@ abstract contract AbstractToken is Token {
    * @return success true if tokens were transferred successfully, false otherwise
    */
   function transfer (address _to, uint256 _value)
-  public override virtual payable returns (bool success) {
+  public override virtual returns (bool success) {
     uint256 fromBalance = accounts [msg.sender];
     if (fromBalance < _value) return false;
     if (_value > 0 && msg.sender != _to) {
@@ -60,7 +60,7 @@ abstract contract AbstractToken is Token {
    * @return success true if tokens were transferred successfully, false otherwise
    */
   function transferFrom (address _from, address _to, uint256 _value)
-  public override virtual payable returns (bool success) {
+  public override virtual returns (bool success) {
     uint256 spenderAllowance = allowances [_from][msg.sender];
     if (spenderAllowance < _value) return false;
     uint256 fromBalance = accounts [_from];
@@ -86,7 +86,7 @@ abstract contract AbstractToken is Token {
    * @return success true if token transfer was successfully approved, false otherwise
    */
   function approve (address _spender, uint256 _value)
-  public override virtual payable returns (bool success) {
+  public override virtual returns (bool success) {
     allowances [msg.sender][_spender] = _value;
     emit Approval (msg.sender, _spender, _value);
 

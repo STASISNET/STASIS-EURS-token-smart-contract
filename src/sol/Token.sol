@@ -35,7 +35,7 @@ interface Token {
    * @return success true if tokens were transferred successfully, false otherwise
    */
   function transfer (address _to, uint256 _value)
-  external payable returns (bool success);
+  external returns (bool success);
 
   /**
    * Transfer given number of tokens from given owner to given recipient.
@@ -47,7 +47,7 @@ interface Token {
    * @return success true if tokens were transferred successfully, false otherwise
    */
   function transferFrom (address _from, address _to, uint256 _value)
-  external payable returns (bool success);
+  external returns (bool success);
 
   /**
    * Allow given spender to transfer given number of tokens from message sender.
@@ -58,7 +58,7 @@ interface Token {
    * @return success true if token transfer was successfully approved, false otherwise
    */
   function approve (address _spender, uint256 _value)
-  external payable returns (bool success);
+  external returns (bool success);
 
   /**
    * Tell how many tokens given spender is currently allowed to transfer from
